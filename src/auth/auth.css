@@ -1,0 +1,25 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: auto;
+    width: 500px;
+    border: 1px solid rgb(1, 35, 73);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #207e93c7;
+    color: azure;
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+button{
+    border-radius: 10px;
+    border: 1px solid rgb(1, 35, 73);
+    font-family: 'Open Sans';
+    font-weight: bold;
+    width: 200px;
+
+
+}
