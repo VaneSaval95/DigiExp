@@ -4,9 +4,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import "./auth/auth.css"
+import { postJson } from "../lib/fetch.ts";
 
 function App() {
-  function OnsubmitForm(event: React.SubmitEvent<HTMLFormElement>){
+  async function OnsubmitForm(event: React.SubmitEvent<HTMLFormElement>){
     event.preventDefault()
 
     console.log("Estamos trabajando en tu registro!", event)
@@ -17,7 +18,7 @@ function App() {
       
       submitValue[key]=value
     }
-    console.log(submitValue)
+    const response = await postJson("http://localhost:3000/register", submitValue)
     return false
   }
   return (

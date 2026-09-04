@@ -1,3 +1,8 @@
+#Recuersos de la aplicación
+db.sql
+.env*
+
+
 # Logs
 logs
 *.log

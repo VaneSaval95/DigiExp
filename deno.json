@@ -21,6 +21,7 @@
     "jsxImportSource": "react"
 },
   "imports": {
+    "@felix/bcrypt": "jsr:@felix/bcrypt@^2.1.0",
     "@hono/hono": "jsr:@hono/hono@^4.13.5"
   }
 }
