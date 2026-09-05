@@ -8,7 +8,7 @@ export default function Login() {
         event.preventDefault()
     
         const submitValue= formToObject(event.target)
-        const response = await postJson("http://localhost:3000/"+event.target.action, submitValue)
+        const response = await postJson(event.target.action, submitValue)
         return false
       }
   return (
