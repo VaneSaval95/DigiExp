@@ -14,7 +14,7 @@ function App() {
       
       submitValue[key]=value
     }
-    const response = await postJson("http://localhost:3000/register", submitValue)
+    const response = await postJson("/register", submitValue)
     return false
   }
   return (
