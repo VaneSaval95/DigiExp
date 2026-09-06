@@ -3,7 +3,7 @@ import "./App.css";
 import "./auth/auth.css";
 import { formToObject } from "./utils/form.ts";
 
-export default function Login() {
+export default function Login({setRoute}:any) {
     async function OnsubmitForm(event: React.SubmitEvent<HTMLFormElement>){
         event.preventDefault()
     
@@ -22,6 +22,7 @@ export default function Login() {
       <div>
         <button type="submit">Enviar</button>
       </div>
+      <a href="#" onClick={()=> {setRoute("/registro")}}>registro</a>
     </form>
   );
 }

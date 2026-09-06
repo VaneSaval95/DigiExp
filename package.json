@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@deno/vite-plugin": "^2.0.3",
+    "@tursodatabase/database": "^0.7.2",
+    "@tursodatabase/serverless": "^1.4.0",
     "@types/react": "^19.2.18",
     "@vitejs/plugin-react": "^6.1.1",
     "react": "^19.2.8",
