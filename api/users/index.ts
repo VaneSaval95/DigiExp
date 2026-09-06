@@ -1,6 +1,6 @@
 import type { Context } from "@hono/hono";
 import { hash } from "@felix/bcrypt";
-import { insertUser } from "../db/index.ts";
+import { insertUser } from "../db/users.ts";
 
 export async function postUsers(c: Context) {
   //obtener la información del cliente

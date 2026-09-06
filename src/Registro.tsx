@@ -2,7 +2,7 @@ import './App.css'
 import "./auth/auth.css"
 import { postJson } from "../lib/fetch.ts";
 
-function App() {
+function App({setRoute}:any) {
   async function OnsubmitForm(event: React.SubmitEvent<HTMLFormElement>){
     event.preventDefault()
 
@@ -14,12 +14,12 @@ function App() {
       
       submitValue[key]=value
     }
-    const response = await postJson("/register", submitValue)
+    const response = await postJson("/api/register", submitValue)
     return false
   }
   return (
     <>
-      <form action="/register" onSubmit={OnsubmitForm} method="post">
+      <form action="/api/register" onSubmit={OnsubmitForm} method="post">
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" name="user_name" />
       
@@ -36,7 +36,7 @@ function App() {
 
           <button type="submit">Registrarme</button>
         </div>
-  
+        <a href="#" onClick={()=>setRoute("/")}>Login</a>
       </form>
       
     </>
