@@ -1,12 +1,16 @@
 import { Hono } from '@hono/hono'
 import { cors } from '@hono/hono/cors'
-import { postUsers } from "./users/index.ts";
+import { postUsers, loginUsers } from "./users/index.ts";
 import { serveStatic } from "@hono/hono/deno";
+import { getPerfil, saveProfile } from "./perfiles/index.ts";
 
 const app = new Hono()
 // TODO: Quitar la siguiente linea de código, o poner detrás de una variable de entorno, antes del rpimer release
 app.use(cors())
 app.post("/api/register",postUsers)
+app.post("/api/login", loginUsers)
+app.post("/api/saveProfile", saveProfile)
+app.get("/api/getProfile", getPerfil)
 app.use("/*", serveStatic({
     root: "./dist"
 }))

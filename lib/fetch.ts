@@ -18,3 +18,22 @@ export async function postJson(url: string, object: Record<string, any>) {
   }
   return null;
 }
+
+export async function getJSON(url: string ) {
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache",
+      
+    });
+    if (response.ok) {
+      const json = await response.json();
+      return json;
+    }
+  } catch (e) {
+    console.error("getJson", e);
+  }
+  return null;
+
+}
