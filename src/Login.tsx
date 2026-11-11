@@ -3,16 +3,20 @@ import "./App.css";
 import "./auth/auth.css";
 import { formToObject } from "./utils/form.ts";
 
-export default function Login({setRoute}:any) {
+export default function Login({setRoute, setUser}:any) {
     async function OnsubmitForm(event: React.SubmitEvent<HTMLFormElement>){
         event.preventDefault()
     
         const submitValue= formToObject(event.target)
         const response = await postJson(event.target.action, submitValue)
+        if (response !== null) {
+          setUser(response.user)
+          setRoute("/perfil")
+        }
         return false
       }
   return (
-    <form action="/login" onSubmit={OnsubmitForm} method="post">
+    <form action="/api/login" onSubmit={OnsubmitForm} method="post">
       <label htmlFor="correo">Correo electrónico:</label>
       <input type="email" id="correo" name="correo" required />
 
@@ -23,6 +27,7 @@ export default function Login({setRoute}:any) {
         <button type="submit">Enviar</button>
       </div>
       <a href="#" onClick={()=> {setRoute("/registro")}}>registro</a>
+      
     </form>
   );
 }

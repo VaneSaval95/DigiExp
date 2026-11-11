@@ -1,7 +1,27 @@
 import type { Context } from "@hono/hono";
-import { hash } from "@felix/bcrypt";
-import { insertUser } from "../db/users.ts";
+import { hash, verify } from "@felix/bcrypt";
+import { insertUser, getUser } from "../db/users.ts";
+export async function loginUsers(c: Context) {
+    const body = await c.req.json();
 
+    if (body.correo && body.password) {
+      const user = await getUser(body.correo)
+      if (user &&  await verify(body.password,user.password)) {
+        return c.json({
+          login: true,
+          user: user
+        })
+      } else {
+        return c.json({
+          "error": "credenciales no validas",
+        }, 400)
+      }
+    }
+  return c.json({
+    "error": "malformed request",
+  
+  }, 400)
+}
 export async function postUsers(c: Context) {
   //obtener la información del cliente
   const body = await c.req.json();
